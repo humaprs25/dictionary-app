@@ -6,7 +6,7 @@ api_key = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=api_key)
 
 # 使うAIモデルの指定
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-2.5-flash')
 
 # 画面のデザイン
 st.title("🌐 3ヶ国語 辞書＆例文アプリ")
