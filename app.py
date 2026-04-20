@@ -26,8 +26,16 @@ if st.button("意味を調べる"):
 
             単語: {word}
             """
-            # AIから回答をもらって画面に出力
-            response = model.generate_content(prompt)
-            st.write(response.text)
+            # ストリーミングで1文字ずつ出す
+            response = model.generate_content(prompt, stream=True)
+            
+            # 文字を次々に追加していくための空の箱（プレースホルダー）を用意
+            message_placeholder = st.empty()
+            full_text = ""
+            
+            # AIから少しずつ送られてくる文字を繋げて、画面を更新し続ける
+            for chunk in response:
+                full_text += chunk.text
+                message_placeholder.markdown(full_text)
     else:
         st.warning("単語を入力してください！")
