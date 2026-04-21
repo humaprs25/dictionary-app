@@ -10,7 +10,7 @@ JST = timezone(timedelta(hours=+9), 'JST')
 # APIキーとAIの設定
 api_key = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=api_key)
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-2.0-flash')
 
 st.title("🌐 3ヶ国語 辞書＆例文アプリ")
 st.write("日本語、英語、スペイン語のいずれかの単語を入力してください。")
